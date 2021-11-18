@@ -36,9 +36,9 @@ link1_status=$(curl -Is https://ia803109.us.archive.org/27/items/WS2019_trial/WS
 link2_status=$(curl -Is https://ia803105.us.archive.org/33/items/server2019-Linggahosting.com/WS2019.ISO | grep HTTP | cut -f2 -d" ")
 #sudo wget -P /mediabots https://ia803109.us.archive.org/27/items/WS2019_trial/WS2019.iso # Windows Server 2019 
 if [ $link1_status = "200" ] ; then 
-	sudo wget -O /mediabots/WS2019.ISO https://www.dropbox.com/s/dvy9iwcjso09tbs/server2019.iso?dl=0
+	sudo wget -O /mediabots/WS2019.ISO http://205.185.126.191/web/iso/Server2016Litex64.iso
 elif [ $link2_status = "200" -o $link2_status = "301" -o $link2_status = "302" ] ; then 
-	sudo wget -P /mediabots https://www.dropbox.com/s/dvy9iwcjso09tbs/server2019.iso?dl=0
+	sudo wget -P /mediabots http://205.185.126.191/web/iso/Server2016Litex64.iso
 else
 	echo -e "${RED}[Error]${NC} ${YELLOW}Sorry! None of Windows OS image urls are available , please report about this issue on Github page : ${NC}https://github.com/mediabots/Linux-to-Windows-with-QEMU"
 	echo "Exiting.."
